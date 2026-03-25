@@ -3,6 +3,7 @@ package com.bank.loan_service.controller;
 import com.bank.loan_service.dto.LoanApplicationRequest;
 import com.bank.loan_service.dto.LoanApplicationResponse;
 import com.bank.loan_service.service.LoanService;
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +22,7 @@ public class LoanController {
     }
 
     @PostMapping("/applications")
-    public ResponseEntity<LoanApplicationResponse> processLoanApplication(@RequestBody LoanApplicationRequest loanApplicationRequest) {
+    public ResponseEntity<LoanApplicationResponse> processLoanApplication(@Valid @RequestBody LoanApplicationRequest loanApplicationRequest) {
         log.info("loan application request : {}", loanApplicationRequest);
         LoanApplicationResponse response = loanService.processLoanApplication(loanApplicationRequest);
         return ResponseEntity.status(HttpStatus.OK).body(response);
