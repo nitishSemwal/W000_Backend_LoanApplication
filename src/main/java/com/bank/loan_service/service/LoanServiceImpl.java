@@ -101,7 +101,7 @@ public class LoanServiceImpl implements LoanService{
 
 
     private float finalInterestRate(RiskPremium riskPremium, String employmentType, int loanSize) {
-        EmploymentPremium employmentPremium = EmploymentPremium.valueOf(employmentType);
+        EmploymentPremium employmentPremium = EmploymentPremium.valueOf(employmentType.toUpperCase());
         float loanPremium = 0;
 
         if (loanSize > 1000000) {

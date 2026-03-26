@@ -2,9 +2,11 @@ package com.bank.loan_service.dto;
 
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter
+@AllArgsConstructor
 public class LoanRequest {
     @Min(10000)
     @Max(5000000)
